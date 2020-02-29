@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Galeria de imagenes con AJAX</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link href="css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Busqueda de gatos</h1>
+        <p><b>Utilización de Ajax para mostrar una galería de imágenes que se pueda filtrar imágenes por categorías y razas.</b></p>
+        <label for="gatos">Elige una categoria:&nbsp;</label><select name="gatos" id="gato"></select>
+        <br>
+        <button type="button" class="btn  btn-secondary" id="botonShow">MOSTRAR</button>
+    </div>
+    <div class="container" id="error"></div>
+    <div class="container d-flex mt-3 p-3 align-items-center justify-content-center flex-wrap" id="gatos">
+    </div>
+
+    <div class="container d-flex mt-3 justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a id="anterior" class="page-link" href="#">Anterior</a></li>
+                <li class="page-item active "><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a id="siguiente" class="page-link " href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <input type="text" hidden id="numeropagina" class=" bg-light" value="1"></input>
+
+    <!--- Aplicacion -->
+    <script src="js/script.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

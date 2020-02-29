@@ -1,0 +1,28 @@
+body {
+    animation-name: anim;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim {
+    0% {
+        background-color: rgb(224, 205, 230);
+    }
+    /*Amarillo*/
+    25% {
+        background-color: rgb(189, 128, 207);
+    }
+    /*Naranja*/
+    50% {
+        background-color: rgb(170, 85, 196);
+    }
+    /*Negro*/
+    75% {
+        background-color: rgb(189, 128, 207);
+    }
+    /*Otra vez naranja*/
+    100% {
+        background-color: rgb(224, 205, 230);
+    }
+    /*Otra vez amarillo*/
+}
