@@ -13,7 +13,7 @@ Utilización de Ajax para mostrar una galería de imágenes de gatos que se pued
 
 ## Incidencias :warning:
 
-*Opcion busqueda por "Razas" no está disponible.
+* Opcion busqueda por "Razas" no está disponible.
 
 ## Autor ✒️
 
