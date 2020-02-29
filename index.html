@@ -15,33 +15,38 @@
 
 <body>
 
-    <div class="container">
-        <h1>Busqueda de gatos</h1>
-        <p><b>Utilización de Ajax para mostrar una galería de imágenes que se pueda filtrar imágenes por categorías y razas.</b></p>
-        <label for="gatos">Elige una categoria:&nbsp;</label><select name="gatos" id="gato"></select>
-        <br>
-        <button type="button" class="btn  btn-secondary" id="botonShow">MOSTRAR</button>
-    </div>
-    <div class="container" id="error"></div>
-    <div class="container d-flex mt-3 p-3 align-items-center justify-content-center flex-wrap" id="gatos">
+    <div class="wrapper">
+        <div class="container">
+            <h1>Busqueda de gatos</h1>
+            <p><b>Utilización de Ajax para mostrar una galería de imágenes que se pueda filtrar imágenes por categorías.</b></p>
+            <label for="gatos">Elige una categoria:&nbsp;</label><select name="gatos" id="gato"></select>
+            <br>
+            <button type="button" class="btn  btn-secondary" id="botonShow">MOSTRAR</button>
+        </div>
+
+        <div class="container" id="error"></div>
+        <div class="container d-flex mt-3 p-3 align-items-center justify-content-center flex-wrap" id="gatos">
+        </div>
+
+        <div class="container d-flex mt-3 justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a id="anterior" class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item active "><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a id="siguiente" class="page-link " href="#">Siguiente</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <input type="text" hidden id="numeropagina" class=" bg-light" value="1"></input>
     </div>
 
-    <div class="container d-flex mt-3 justify-content-center">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a id="anterior" class="page-link" href="#">Anterior</a></li>
-                <li class="page-item active "><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a id="siguiente" class="page-link " href="#">Siguiente</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <input type="text" hidden id="numeropagina" class=" bg-light" value="1"></input>
-
+    <!--- Peticion AJAX -->
+    <script src="js/ajax.js"></script>
     <!--- Aplicacion -->
     <script src="js/script.js"></script>
     <!-- Optional JavaScript -->
