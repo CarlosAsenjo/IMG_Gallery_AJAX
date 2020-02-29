@@ -19,7 +19,14 @@
         <div class="container">
             <h1>Busqueda de gatos</h1>
             <p><b>Utilización de Ajax para mostrar una galería de imágenes que se pueda filtrar imágenes por categorías.</b></p>
-            <label for="gatos">Elige una categoria:&nbsp;</label><select name="gatos" id="gato"></select>
+            <label for="gatos">Elige una categoria:&nbsp; </label>
+            <select name="gatos" id="gato">
+                <option value="0">none</option>
+            </select>
+            <label for="gatos">O elige una Raza:&nbsp; </label>
+            <select name="gatos" id="gatoRaza">
+                <option value="0">none</option>
+            </select>
             <br>
             <button type="button" class="btn  btn-secondary" id="botonShow">MOSTRAR</button>
         </div>

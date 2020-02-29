@@ -1,10 +1,16 @@
+var pag = document.getElementById("numeropagina").value;
 
 /********* BOTON MOSTRAR *********/
 document.getElementById("botonShow").addEventListener("click", () => {
 
-    var pag = document.getElementById("numeropagina").value;
     var gatoID = document.getElementById("gato").value;
-    var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=1&order=DESC';
+    var gatoRaza = document.getElementById("gatoRaza").value;
+    console.log(gatoID)
+    console.log(gatoRaza)
+    if (gatoID != 0)
+        var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=1&order=desc';
+    else
+        var imagenes = 'https://api.thecatapi.com/v1/images/search?breed_id=' + gatoRaza + '&limit=12';
     const promesa2 = request(imagenes);
 
     document.getElementById("numeropagina").value = "1";
@@ -20,8 +26,8 @@ document.getElementById("botonShow").addEventListener("click", () => {
         })
 
     .catch(function handleErrors(error) {
-        console.log('when a reject is executed it will come here ignoring the then statement ', error)
-        document.getElementById("error").innerHTML = '<div class="alert alert-danger">Algo ha ido mal. Consulta con el administrador o prueba a recargar la página.</div>';
+        // console.log('when a reject is executed it will come here ignoring the then statement ', error)
+        // document.getElementById("error").innerHTML = '<div class="alert alert-danger">Algo ha ido mal. Consulta con el administrador o prueba a recargar la página.</div>';
     })
 
     document.getElementById("siguiente").style.display = 'block';
@@ -36,6 +42,8 @@ document.getElementById("botonShow").addEventListener("click", () => {
         }
     }
 });
+
+
 
 /********* PROMESA DE CATEGORIA *********/
 const categorias = 'https://api.thecatapi.com/v1/categories';
@@ -52,8 +60,23 @@ promesaCategoria
         document.getElementById("error").innerHTML = '<div class="alert alert-danger">Algo ha ido mal. Consulta con el administrador o prueba a recargar la página.</div>';
     })
 
+/********* PROMESA DE RAZAS *********/
+const razas = 'https://api.thecatapi.com/v1/breeds';
+const promesaRaza = request(razas);
+
+promesaRaza
+    .then(function categorias(json) {
+        const listGato = JSON.parse(json);
+        listGato.forEach(gato => document.getElementById("gatoRaza").innerHTML += "<option value=" + gato.id + ">" + gato.name + "</option>");
+
+    })
+    .catch(function handleErrors(error) {
+        console.log('when a reject is executed it will come here ignoring the then statement ', error)
+        document.getElementById("error").innerHTML = '<div class="alert alert-danger">Algo ha ido mal. Consulta con el administrador o prueba a recargar la página.</div>';
+    })
+
 /********* PRIMERA CARGA DE IMAGENES *********/
-const promesaImagenes = request('https://api.thecatapi.com/v1/images/search?category_ids=5&limit=12&page=1&order=DESC');
+const promesaImagenes = request('https://api.thecatapi.com/v1/images/search?category_ids=5&limit=12&page=1&order=desc');
 
 window.onload = promesaImagenes
     .then(function ponerImagenes(json) {
@@ -73,13 +96,18 @@ const paginas = document.querySelector("ul.pagination");
 paginas.addEventListener("click", (event) => {
 
     var gatoID = document.getElementById("gato").value;
+    var gatoRaza = document.getElementById("gatoRaza").value;
 
     if (event.target.textContent === "Anterior" && pag != '1') {
         document.getElementById("siguiente").style.display = 'block';
         pag = (parseInt(pag) - 1);
         document.getElementById("numeropagina").value = pag.toString();
 
-        var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        // var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        if (gatoID != 0)
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=desc';
+        else
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?breed_id=' + gatoRaza + '&limit=12&page=' + pag;
         const promesaPagina = request(imagenes);
 
         if (pag == '1') {
@@ -101,7 +129,11 @@ paginas.addEventListener("click", (event) => {
         pag = (parseInt(pag) + 1);
         document.getElementById("numeropagina").value = pag.toString();
 
-        var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        // var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        if (gatoID != 0)
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=desc';
+        else
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?breed_id=' + gatoRaza + '&limit=12&page=' + pag;
         const promesaPagina = request(imagenes);
 
         if (pag == '5') {
@@ -123,7 +155,11 @@ paginas.addEventListener("click", (event) => {
         pag = parseInt(event.target.textContent);
         document.getElementById("numeropagina").value = pag.toString();
 
-        var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        // var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        if (gatoID != 0)
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?category_ids=' + gatoID + '&limit=12&page=' + pag + '&order=DESC';
+        else
+            var imagenes = 'https://api.thecatapi.com/v1/images/search?breed_id=' + gatoRaza + '&limit=12&page=' + pag;
 
         if (document.getElementById("numeropagina").value == '5') {
             document.getElementById("siguiente").style.display = 'none';
