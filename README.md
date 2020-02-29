@@ -1,3 +1,5 @@
+DWEC
+
 # Galería de imágenes con AJAX :mag:
 Utilización de Ajax para mostrar una galería de imágenes de gatos que se pueda filtrar imágenes por categorías y razas.
 
