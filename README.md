@@ -13,9 +13,9 @@ Utilización de Ajax para mostrar una galería de imágenes de gatos que se pued
 
 [Galeria](https://carlosasenjo.github.io/IMG_Gallery_AJAX/)
 
-## Incidencias :warning:
+## Aviso :warning:
 
-* Opcion busqueda por "Razas" no está disponible.
+* Solamente se puede filtrar por una de las opciones, "Categorias" o "Razas".
 
 ## Autor ✒️
 
